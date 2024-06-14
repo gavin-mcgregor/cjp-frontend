@@ -1,0 +1,40 @@
+---
+import TempImage from '../components/temp-image.astro'
+import TextContainer from '../components/text-container.astro'
+import Spacer from '../components/spacer.astro'
+
+const { data } = Astro.props
+---
+
+<section class={`conclusion-container${data.background ? ` background-${data.background}` : ''}`}>
+	<div class="page-extra">
+		<TempImage aspect="landscape" />
+	</div>
+	<div class="page-width-lines">
+		<Spacer />
+		<TextContainer data={data.textcontainer} />
+		<p class="text-script text-right">Let’s Chat</p>
+		<Spacer />
+	</div>
+</section>
+
+<style>
+	.conclusion-container {
+		overflow: hidden;
+	}
+	.conclusion-container.background-blue-600 {
+		background-color: unset;
+		background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 40rem, var(--blue-600) 40rem);
+
+		.text-script {
+			color: var(--blue-400);
+			margin: 0 4rem;
+			white-space: nowrap;
+		}
+	}
+	@media (max-width: 980px) {
+		.conclusion-container.background-blue-600 {
+			background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 10rem, var(--blue-600) 10rem);
+		}
+	}
+</style>

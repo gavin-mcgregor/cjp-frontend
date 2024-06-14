@@ -1,0 +1,25 @@
+---
+const { aspect, corners } = Astro.props
+---
+
+<div class={`temp-image${aspect ? ` ${aspect}` : ''}${corners ? ` ${corners}` : ''}`}></div>
+
+<style>
+	.temp-image {
+		padding-top: calc(1 / 1 * 100%);
+		background-color: var(--black);
+		overflow: hidden;
+	}
+
+	.temp-image.rounded {
+		border-radius: 1rem;
+	}
+
+	.temp-image.landscape {
+		padding-top: calc(2 / 3 * 100%);
+	}
+
+	.temp-image.portrait {
+		padding-top: calc(3 / 2 * 100%);
+	}
+</style>

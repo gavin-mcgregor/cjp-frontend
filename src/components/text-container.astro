@@ -1,0 +1,43 @@
+---
+import Button from '../components/button.astro'
+const { data } = Astro.props
+---
+
+<div class="text-container">
+	{data.subtitle && <p class="text-subtitle">{data.subtitle}</p>}
+	{data.title && <h2 class="text-title">{data.title}</h2>}
+	{data.display && <h2 class="text-display">{data.display}</h2>}
+	{data.body && data.body.map((p) => <p>{p}</p>)}
+	{data.button && <Button data={data.button} />}
+</div>
+
+<style>
+	.text-container {
+		max-width: 55ch;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2rem;
+
+		.text-title,
+		.text-display {
+			text-wrap: balance;
+		}
+	}
+
+	:global(.background-peach-800) .text-container {
+		color: var(--cream-400);
+
+		.text-subtitle {
+			color: var(--peach-400);
+		}
+	}
+
+	:global(.background-blue-600) .text-container {
+		color: var(--cream-400);
+
+		.text-subtitle {
+			color: var(--blue-400);
+		}
+	}
+</style>

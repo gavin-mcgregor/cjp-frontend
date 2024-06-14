@@ -1,0 +1,26 @@
+---
+const { position, color } = Astro.props
+---
+
+<div class="section-trans">
+	{
+		position === 'top' && (
+			<svg viewBox="0 0 1000 50">
+				<polygon points="0,0 1000,50 0,50" style={color && `fill: var(--${color})`} />
+			</svg>
+		)
+	}
+	{
+		position === 'bottom' && (
+			<svg viewBox="0 0 1000 50">
+				<polygon points="0,0 1000,0 0,50" style={color && `fill: var(--${color})`} />
+			</svg>
+		)
+	}
+</div>
+
+<style>
+	.section-trans {
+		line-height: 0;
+	}
+</style>

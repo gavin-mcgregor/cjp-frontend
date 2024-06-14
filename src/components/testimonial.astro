@@ -1,0 +1,22 @@
+---
+const { data } = Astro.props
+---
+
+<div class="testimonial-container text-center">
+	{data.quote && <p class="text-display">“{data.quote}”</p>}
+	{data.author && <p class="author">— {data.author}</p>}
+</div>
+
+<style>
+	.testimonial-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 55ch;
+		margin: 0 auto;
+
+		.author {
+			color: var(--blue-400);
+		}
+	}
+</style>

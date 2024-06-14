@@ -1,0 +1,87 @@
+---
+import Spacer from '../components/spacer.astro'
+---
+
+<footer class="background-black">
+	<div class="page-width-lines">
+		<Spacer />
+		<div class="footer-links-container">
+			<ul>
+				<li class="text-subtitle"><span>Links:</span></li>
+				<li class="text-subtitle"><a href="#">Home</a></li>
+				<li class="text-subtitle"><a href="#">About</a></li>
+				<li class="text-subtitle"><a href="#">Weddings</a></li>
+				<li class="text-subtitle"><a href="#">Packages</a></li>
+			</ul>
+			<ul>
+				<li class="text-subtitle"><span>Contact:</span></li>
+				<li class="text-subtitle"><a href="#">Email</a></li>
+				<li class="text-subtitle"><a href="#">Instagram</a></li>
+			</ul>
+		</div>
+		<Spacer />
+	</div>
+	<div class="page-extra">
+		<div class="footer-bottom-bar">
+			<ul>
+				<li class="text-subtitle"><a href="#">Website: We Can Rebuild Him</a></li>
+				<li class="text-subtitle"><a href="#">Privacy Policy</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer-links-container {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		max-width: 55ch;
+
+		ul {
+			width: 50%;
+		}
+
+		a {
+			color: var(--blue-400);
+			transition: color 0.3s ease-in;
+		}
+
+		a:hover {
+			color: var(--blue-200);
+		}
+
+		span {
+			color: var(--blue-200);
+		}
+	}
+
+	.footer-bottom-bar {
+		border: solid 2px var(--blue-800);
+		border-bottom-width: 0;
+		padding: 4rem min(100px, 5%) 4rem;
+
+		ul {
+			display: flex;
+			justify-content: space-between;
+			gap: 2rem;
+		}
+
+		a {
+			transition: color 0.3s ease-in;
+		}
+
+		a:hover {
+			color: var(--blue-400);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.footer-bottom-bar {
+			ul {
+				flex-direction: column;
+				gap: 0;
+			}
+		}
+	}
+</style>

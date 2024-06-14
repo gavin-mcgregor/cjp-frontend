@@ -1,0 +1,41 @@
+---
+const { double } = Astro.props
+---
+
+<div class={double ? 'spacer-double' : 'spacer'}>
+	<hr />
+</div>
+
+<style>
+	.spacer {
+		display: block;
+		padding: 8rem 0;
+		hr {
+			border: none;
+		}
+	}
+
+	.spacer-double {
+		padding: 16rem 0;
+	}
+
+	@media (max-width: 980px) {
+		.spacer {
+			padding: 4rem 0;
+		}
+
+		.spacer-double {
+			padding: 8rem 0;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.spacer {
+			padding: 2rem 0;
+		}
+
+		.spacer-double {
+			padding: 4rem 0;
+		}
+	}
+</style>

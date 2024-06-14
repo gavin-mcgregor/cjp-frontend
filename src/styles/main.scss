@@ -1,0 +1,298 @@
+// Main Styles
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+:root {
+	--blue-800: #4c4c4c;
+	--blue-600: #60656c;
+	--blue-400: #8a929f;
+	--blue-200: #e0e2e3;
+
+	--white: #ffffff;
+	--black: #222222;
+
+	--cream-400: #f9f7f2;
+	--cream-200: #fdfcfa;
+
+	--peach-800: #8f5f5a;
+	--peach-600: #cb928a;
+	--peach-400: #e9c5b7;
+	--peach-200: #f1e1d9;
+	--peach-100: #f1e1d9;
+}
+
+html {
+	font-size: 8px;
+	background-color: var(--cream-200);
+	color: var(--blue-800);
+	fill: var(--blue-800);
+
+	background-image: url('/assets/dust.png');
+	background-repeat: repeat-y;
+	background-size: 100%;
+}
+
+body {
+	position: relative;
+}
+
+body,
+.text-body,
+input,
+button,
+label,
+textarea {
+	font-family: 'gt ultra median reg', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 2.5rem;
+	line-height: 1.3em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-size: unset;
+	font-weight: unset;
+}
+
+a {
+	color: unset;
+	text-decoration: none;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+// Typography
+
+@font-face {
+	font-family: 'baltazak';
+	src: url('/fonts/Baltazak.woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gt ultra median black';
+	src: url('/fonts/GT-Ultra-Median-Black.woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gt ultra median reg';
+	src: url('/fonts/GT-Ultra-Median-Regular.woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.text-title {
+	font-family: 'gt ultra median black', sans-serif;
+	text-transform: uppercase;
+	font-size: 3rem;
+	line-height: 1em;
+}
+
+.text-display {
+	font-family: 'gt ultra median black', sans-serif;
+	text-transform: uppercase;
+	font-size: 5rem;
+	line-height: 1em;
+}
+
+.text-subtitle {
+	font-family: 'EB Garamond', serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 2rem;
+	letter-spacing: 0.1em;
+}
+
+.text-script {
+	font-family: 'baltazak', cursive;
+	text-transform: lowercase;
+	font-size: 30rem;
+	line-height: 1.5em;
+	letter-spacing: 0;
+}
+
+.text-small {
+	font-size: 1.75rem;
+	font-weight: 400;
+	line-height: 1.4em;
+}
+
+.text-center {
+	text-align: center;
+	align-items: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-underline {
+	text-decoration: underline;
+	text-underline-offset: 0.1em;
+}
+
+@media (max-width: 980px) {
+	body,
+	.text-body,
+	.text-subtitle,
+	input,
+	button,
+	label,
+	textarea {
+		font-size: 2rem;
+	}
+	.text-title {
+		font-size: 2.5rem;
+	}
+
+	.text-display {
+		font-size: 3.5rem;
+	}
+
+	.text-script {
+		font-size: 15rem;
+	}
+}
+
+@media (max-width: 640px) {
+	body,
+	.text-body,
+	.text-subtitle,
+	input,
+	button,
+	label,
+	textarea {
+		font-size: 1.5rem;
+	}
+
+	.text-title {
+		font-size: 1.5rem;
+	}
+
+	.text-display {
+		font-size: 2.5rem;
+	}
+
+	.text-script {
+		font-size: 10rem;
+	}
+}
+
+// Text Colour
+
+// Background Colour
+
+.background-peach-800 {
+	background-color: var(--peach-800);
+}
+
+.background-blue-600 {
+	background-color: var(--blue-600);
+}
+
+.background-black {
+	background-color: var(--black);
+}
+
+// Page Width
+
+.page-full {
+	width: calc(100% - 4rem);
+	margin: auto;
+}
+
+.page-extra {
+	max-width: 1400px;
+	width: calc(100% - 8rem);
+	margin: auto;
+}
+
+.page-width {
+	max-width: 1200px;
+	width: calc(100% - 8rem);
+	margin: auto;
+}
+
+.page-width-lines {
+	max-width: 1400px;
+	width: calc(100% - 8rem);
+	margin: auto;
+	padding: 0 min(100px, 5%);
+	border-left: solid 2px var(--black);
+	border-right: solid 2px var(--black);
+}
+
+.background-blue-600 .page-width-lines {
+	border-color: var(--blue-400);
+}
+
+.background-black .page-width-lines {
+	border-color: var(--blue-800);
+}
+
+@media (max-width: 640px) {
+	.page-width-lines,
+	.page-extra,
+	.page-width {
+		width: calc(100% - 4rem);
+	}
+
+	.page-full {
+		width: calc(100% - 4rem);
+	}
+}
+
+// z1
+
+.z-1 {
+	position: relative;
+	z-index: 1;
+}
+
+// Images
+
+img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+}
+
+[data-lazy] {
+	opacity: 0.1;
+	transition: opacity 0.5s ease-in;
+}
+
+[data-lazy].loaded {
+	opacity: 1;
+}
+
+// Not Table / Mobile
+
+@media (max-width: 980px) {
+	.not-tablet {
+		display: none;
+	}
+}
+
+@media (max-width: 980px) {
+	.not-mobile {
+		display: none;
+	}
+}

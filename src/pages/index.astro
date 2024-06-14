@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/layout.astro'
+import Spacer from '../components/spacer.astro'
+import TextContainer from '../components/text-container.astro'
+import TempImage from '../components/temp-image.astro'
+import Masonry from '../components/masonry.astro'
+import SectionTrans from '../components/section-trans.astro'
+import TextDoubleImage from '../components/text-double-image.astro'
+import Line from '../components/line.astro'
+import Testimonial from '../components/testimonial.astro'
+import Conclusion from '../components/conclusion.astro'
+import Footer from '../components/footer.astro'
+
+const herotextdata = {
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+}
+
+const introtextdata = {
+	subtitle: 'General Introduction',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
+	],
+	button: {
+		url: '#',
+		text: 'Wedding Gallery',
+		target: '_self'
+	}
+}
+
+const introgallery = [
+	[{ aspect: 'landscape' }, { aspect: 'portrait' }, { aspect: 'landscape' }],
+	[{ aspect: 'portrait' }, { aspect: 'landscape' }, { aspect: 'landscape' }],
+	[{ aspect: 'landscape' }, { aspect: 'landscape' }, { aspect: 'portrait' }],
+	[{ aspect: 'landscape' }, { aspect: 'portrait' }, { aspect: 'landscape' }]
+]
+
+const textdoubleimage = {
+	textcontainer: {
+		title: "Granny's 80th Birthday",
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
+		]
+	},
+	imagecontainer: [{ aspect: 'portrait' }, { aspect: 'portrait' }]
+}
+
+const parentstextdata = {
+	title: 'My Parents Wedding',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
+	]
+}
+
+const hometestimonial = {
+	quote: 'I felt so at ease, like we’ve been friends for years!',
+	author: 'David & Gail, Glasgow'
+}
+
+const homeconclusion = {
+	background: 'blue-600',
+	textcontainer: {
+		subtitle: 'Contact Claire Juliet Paton',
+		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. '
+		],
+		button: {
+			url: '#',
+			text: 'Contact Me',
+			target: '_self'
+		}
+	}
+}
+---
+
+<Layout page="home" classArray={['homepage']}>
+	<section>
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={herotextdata} />
+			<Spacer />
+		</div>
+		<div class="page-extra">
+			<TempImage aspect="landscape" />
+		</div>
+	</section>
+	<section class="background-peach-800">
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={introtextdata} />
+			<Spacer />
+		</div>
+		<div class="page-extra">
+			<Masonry data={introgallery} />
+			<Spacer />
+		</div>
+	</section>
+	<SectionTrans position="bottom" color="peach-800" />
+	<section>
+		<div class="page-extra">
+			<Spacer />
+			<TextDoubleImage data={textdoubleimage} />
+			<Spacer />
+		</div>
+		<div class="page-full">
+			<TempImage aspect="landscape" corners="rounded" />
+		</div>
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={parentstextdata} />
+			<Spacer />
+		</div>
+		<Line />
+		<div class="page-width">
+			<Spacer />
+			<Testimonial data={hometestimonial} />
+			<Spacer />
+		</div>
+		<Conclusion data={homeconclusion} />
+	</section>
+	<Footer />
+</Layout>
