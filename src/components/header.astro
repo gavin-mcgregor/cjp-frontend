@@ -7,21 +7,24 @@ import Logo from '../components/logo.astro'
 		<div class="logo-container">
 			<Logo />
 		</div>
-		<nav class="nav-container">
-			<ul class="menu-list">
-				<li class="text-subtitle menu-item"><a href="#">About</a></li>
-				<li class="text-subtitle menu-item"><a href="#">Weddings</a></li>
-				<li class="text-subtitle menu-item">
-					<span class="submenu-title">Info</span>
-					<ul class="submenu-list">
-						<li class="text-subtitle menu-item"><a href="#">East Lothian</a></li>
-						<li class="text-subtitle menu-item"><a href="#">Wedding Blog</a></li>
-						<li class="text-subtitle menu-item"><a href="#">Packages</a></li>
-					</ul>
-				</li>
-				<li class="text-subtitle menu-item"><a href="#">Contact</a></li>
-			</ul>
-		</nav>
+		<button id="mobmenu" class="text-subtitle">Menu</button>
+		<div class="nav-container">
+			<nav>
+				<ul class="menu-list">
+					<li class="text-subtitle menu-item"><a href="#">About</a></li>
+					<li class="text-subtitle menu-item"><a href="#">Weddings</a></li>
+					<li class="text-subtitle menu-item">
+						<span class="submenu-title">Info</span>
+						<ul class="submenu-list">
+							<li class="text-subtitle menu-item"><a href="#">East Lothian</a></li>
+							<li class="text-subtitle menu-item"><a href="#">Wedding Blog</a></li>
+							<li class="text-subtitle menu-item"><a href="#">Packages</a></li>
+						</ul>
+					</li>
+					<li class="text-subtitle menu-item"><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 </header>
 
@@ -42,6 +45,13 @@ import Logo from '../components/logo.astro'
 		svg {
 			fill: var(--peach-800);
 		}
+	}
+
+	#mobmenu {
+		border: unset;
+		background-color: unset;
+		color: var(--blue-800);
+		display: none;
 	}
 
 	/* Nav */
@@ -90,4 +100,94 @@ import Logo from '../components/logo.astro'
 			}
 		}
 	}
+
+	@media (max-width: 980px) {
+		.logo-container,
+		#mobmenu {
+			display: inline-block;
+			position: relative;
+			z-index: 10;
+		}
+
+		.nav-container {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: -100vw;
+			width: 100%;
+			height: 200vh;
+			background-color: var(--cream-200);
+
+			transition-property: display left;
+			transition-duration: 0.75s;
+			transition-timing-function: ease-in;
+			transition-behavior: allow-discrete;
+		}
+
+		nav {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			width: 100%;
+
+			opacity: 0;
+			transition-property: opacity;
+			transition-duration: 0.4s;
+			transition-delay: 0s;
+			transition-timing-function: ease-in;
+
+			.menu-list,
+			.submenu-list {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 3rem;
+			}
+
+			.submenu-title {
+				display: none;
+			}
+
+			.menu-item {
+				font-size: 3rem;
+			}
+		}
+
+		body.menu-open {
+			height: 100vh;
+			overflow: hidden;
+
+			.nav-container {
+				display: block;
+				left: 0;
+			}
+
+			nav {
+				opacity: 1;
+				transition-delay: 0.7s;
+				transition-duration: 0.5s;
+			}
+		}
+		@starting-style {
+			body.menu-open .nav-container {
+				left: -100vw;
+
+				nav {
+					opacity: 0;
+				}
+			}
+		}
+	}
 </style>
+
+<script is:inline>
+	function handleMenu() {
+		const mobButton = document.querySelector('#mobmenu')
+		mobButton.addEventListener('click', () => {
+			const bodyEl = document.querySelector('body')
+			bodyEl.classList.toggle('menu-open')
+		})
+	}
+	window.addEventListener('DOMContentLoaded', handleMenu)
+</script>
