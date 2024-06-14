@@ -109,6 +109,10 @@ import Logo from '../components/logo.astro'
 			z-index: 10;
 		}
 
+		.nav-container.visible {
+			display: block;
+		}
+
 		.nav-container {
 			display: none;
 			position: absolute;
@@ -118,10 +122,9 @@ import Logo from '../components/logo.astro'
 			height: 200vh;
 			background-color: var(--cream-200);
 
-			transition-property: display left;
+			transition-property: left;
 			transition-duration: 0.75s;
 			transition-timing-function: ease-in;
-			transition-behavior: allow-discrete;
 		}
 
 		nav {
@@ -186,7 +189,17 @@ import Logo from '../components/logo.astro'
 		const mobButton = document.querySelector('#mobmenu')
 		mobButton.addEventListener('click', () => {
 			const bodyEl = document.querySelector('body')
-			bodyEl.classList.toggle('menu-open')
+			const navEl = document.querySelector('.nav-container')
+
+			if (!bodyEl.classList.contains('menu-open')) {
+				bodyEl.classList.add('menu-open')
+				navEl.classList.add('visible')
+			} else {
+				bodyEl.classList.remove('menu-open')
+				setTimeout(() => {
+					navEl.classList.remove('visible')
+				}, 1000)
+			}
 		})
 	}
 	window.addEventListener('DOMContentLoaded', handleMenu)
