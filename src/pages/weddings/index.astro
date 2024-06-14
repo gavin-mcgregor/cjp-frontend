@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/layout.astro'
+import Spacer from '../../components/spacer.astro'
+import TextContainer from '../../components/text-container.astro'
+import Masonry from '../../components/masonry.astro'
+import Line from '../../components/line.astro'
+import Testimonial from '../../components/testimonial.astro'
+import Conclusion from '../../components/conclusion.astro'
+import Footer from '../../components/footer.astro'
+
+const herotextdata = {
+	subtitle: 'Wedding Gallery Portfolio',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante.'
+	]
+}
+
+const maingallery = [
+	[
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' }
+	],
+	[
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' }
+	],
+	[
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' }
+	],
+	[
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' },
+		{ aspect: 'landscape' },
+		{ aspect: 'portrait' },
+		{ aspect: 'landscape' }
+	]
+]
+
+const weddingtestimonial = {
+	quote: 'I felt so at ease, like we’ve been friends for years!',
+	author: 'David & Gail, Glasgow'
+}
+
+const weddingconclusion = {
+	background: {
+		trans: 'clear',
+		main: 'peach-800'
+	},
+
+	textcontainer: {
+		subtitle: 'Contact Claire Juliet Paton',
+		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. '
+		],
+		button: {
+			url: '#',
+			text: 'Contact Me',
+			target: '_self'
+		}
+	}
+}
+---
+
+<Layout page="wedding" classArray={['weddingpage']}>
+	<section>
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={herotextdata} />
+			<Spacer />
+		</div>
+		<div class="page-extra">
+			<Spacer />
+			<Masonry data={maingallery} />
+			<Spacer />
+		</div>
+		<Line />
+		<div class="page-width">
+			<Spacer />
+			<Testimonial data={weddingtestimonial} />
+			<Spacer />
+		</div>
+	</section>
+	<Conclusion data={weddingconclusion} />
+	<Footer />
+</Layout>

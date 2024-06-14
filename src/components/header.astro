@@ -5,18 +5,20 @@ import Logo from '../components/logo.astro'
 <header>
 	<div class="header-inner page-width">
 		<div class="logo-container">
-			<Logo />
+			<a href="/">
+				<Logo />
+			</a>
 		</div>
 		<button id="mobmenu" class="text-subtitle">Menu</button>
 		<div class="nav-container">
 			<nav>
 				<ul class="menu-list">
-					<li class="text-subtitle menu-item"><a href="#">About</a></li>
-					<li class="text-subtitle menu-item"><a href="#">Weddings</a></li>
+					<li class="text-subtitle menu-item"><a href="/about/">About</a></li>
+					<li class="text-subtitle menu-item"><a href="/weddings/">Weddings</a></li>
 					<li class="text-subtitle menu-item">
 						<span class="submenu-title">Info</span>
 						<ul class="submenu-list">
-							<li class="text-subtitle menu-item"><a href="#">East Lothian</a></li>
+							<li class="text-subtitle menu-item"><a href="/east-lothian/">East Lothian</a></li>
 							<li class="text-subtitle menu-item"><a href="#">Wedding Blog</a></li>
 							<li class="text-subtitle menu-item"><a href="#">Packages</a></li>
 						</ul>
@@ -202,5 +204,5 @@ import Logo from '../components/logo.astro'
 			}
 		})
 	}
-	window.addEventListener('DOMContentLoaded', handleMenu)
+	document.addEventListener('DOMContentLoaded', handleMenu)
 </script>

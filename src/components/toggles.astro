@@ -1,0 +1,143 @@
+---
+import Arrow from '../components/arrrow.astro'
+const { data } = Astro.props
+---
+
+<div class="toggle-container">
+	{
+		data &&
+			data.map((toggle) => (
+				<div class="toggle-single">
+					<button class="toggle-title text-title">
+						{toggle.title} <Arrow />
+					</button>
+					<div class="toggle-content">{toggle.content}</div>
+				</div>
+			))
+	}
+</div>
+
+<style>
+	.toggle-container {
+		padding-top: 2rem;
+		max-width: 55ch;
+
+		button {
+			background-color: unset;
+			color: var(--blue-800);
+			border: none;
+			text-align: left;
+		}
+
+		.toggle-single {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			width: 100%;
+			gap: 2rem;
+
+			border-top: solid 2px var(--blue-600);
+			padding: 2rem 0;
+
+			overflow: hidden;
+			transition: height 0.3s ease-in;
+		}
+
+		.toggle-single:last-child {
+			border-bottom: solid 2px var(--blue-600);
+		}
+
+		.toggle-single {
+			svg {
+				position: absolute;
+				right: 0;
+				top: 2.5rem;
+				width: 1.5rem;
+				transform: rotate(90deg);
+				transition: transform 0.3s ease-in;
+			}
+		}
+
+		.toggle-content {
+			display: none;
+		}
+
+		.toggle-content.visible {
+			display: block;
+		}
+
+		.toggle-single.open {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	@media (max-width: 640px) {
+		.toggle-container {
+			.toggle-single {
+				svg {
+					top: 2rem;
+					width: 1rem;
+				}
+			}
+		}
+	}
+</style>
+
+<script>
+	function handleToggles() {
+		const allToggles = document.querySelectorAll('.toggle-title')
+		allToggles.forEach((toggle) => {
+			toggle.addEventListener('click', (e) => {
+				//
+				const target = e.target as HTMLElement
+				const targetToggle = target.closest('.toggle-single') as HTMLElement
+				const content = targetToggle.querySelector('.toggle-content')
+
+				if (!targetToggle.classList.contains('open')) {
+					targetToggle.classList.add('open')
+					const newHeight = parseInt(targetToggle.getAttribute('data-open')) + 6 * 8
+					targetToggle.style.height = `${newHeight}px`
+					content.classList.add('visible')
+				} else {
+					targetToggle.classList.remove('open')
+					const newHeight = parseInt(targetToggle.getAttribute('data-close')) + 4 * 8
+					targetToggle.style.height = `${newHeight}px`
+
+					setTimeout(() => {
+						content.classList.remove('visible')
+					}, 500)
+				}
+			})
+		})
+	}
+	document.addEventListener('DOMContentLoaded', handleToggles)
+
+	function calculateToggleHeights() {
+		//
+		const toggleSingles = document.querySelectorAll('.toggle-single') as NodeListOf<HTMLElement>
+
+		toggleSingles.forEach((toggleSingle) => {
+			//
+			const toggleTitle = toggleSingle.querySelector('.toggle-title') as HTMLElement
+			const toggleContent = toggleSingle.querySelector('.toggle-content') as HTMLElement | null
+			const closedHeight = toggleTitle.offsetHeight
+			let openHeight = toggleTitle.offsetHeight
+
+			if (toggleContent && !toggleContent.classList.contains('hidden')) {
+				toggleContent.style.display = 'block'
+				openHeight += toggleContent.offsetHeight
+				toggleContent.style.display = ''
+			}
+
+			toggleSingle.setAttribute('data-close', closedHeight.toString())
+			toggleSingle.setAttribute('data-open', openHeight.toString())
+			toggleSingle.style.height = `${parseInt(toggleSingle.getAttribute('data-close')) + 4 * 8}px`
+		})
+	}
+	document.addEventListener('DOMContentLoaded', calculateToggleHeights)
+	window.addEventListener('resize', () => {
+		setTimeout(calculateToggleHeights, 500)
+	})
+</script>

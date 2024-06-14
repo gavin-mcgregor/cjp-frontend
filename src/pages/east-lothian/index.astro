@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/layout.astro'
+import Spacer from '../../components/spacer.astro'
+import TextContainer from '../../components/text-container.astro'
+import TextSingleImage from '../../components/text-single-image.astro'
+import TextDoubleImage from '../../components/text-double-image.astro'
+import OffsetImages from '../../components/offset-images.astro'
+import Masonry from '../../components/masonry.astro'
+import Toggles from '../../components/toggles.astro'
+import SectionTrans from '../../components/section-trans.astro'
+import Conclusion from '../../components/conclusion.astro'
+import Footer from '../../components/footer.astro'
+
+const herotextdata = {
+	textcontainer: {
+		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. '
+		]
+	},
+	imagecontainer: [{ aspect: 'landscape' }]
+}
+
+const maingallery = [
+	[{ aspect: 'landscape' }, { aspect: 'portrait' }, { aspect: 'landscape' }],
+	[{ aspect: 'portrait' }, { aspect: 'landscape' }, { aspect: 'landscape' }],
+	[{ aspect: 'landscape' }, { aspect: 'landscape' }, { aspect: 'portrait' }],
+	[{ aspect: 'landscape' }, { aspect: 'portrait' }, { aspect: 'landscape' }]
+]
+
+const introtextdata = {
+	subtitle: 'Introduce East Lothian',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.',
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
+	]
+}
+
+const textdoubleimage = {
+	textcontainer: {
+		title: 'My Life in East Lothian',
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
+		]
+	},
+	imagecontainer: [{ aspect: 'portrait' }, { aspect: 'portrait' }]
+}
+
+const offsetimagedata = [{ aspect: 'portrait' }, { aspect: 'portrait' }]
+
+const supplytextdata = {
+	subtitle: 'Local East Lothian Suppliers',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
+	]
+}
+
+const supplyinfodata = [
+	{
+		title: 'Venues and Hotels',
+		content:
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor.'
+	},
+	{
+		title: 'Catering and Drinks',
+		content:
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
+	},
+	{
+		title: 'Flowers and Decor',
+		content:
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a.'
+	},
+	{
+		title: 'Music, Bands and Djs',
+		content:
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a.'
+	}
+]
+
+const eastconclusion = {
+	background: {
+		trans: 'peach-200',
+		main: 'peach-800'
+	},
+
+	textcontainer: {
+		subtitle: 'Contact Claire Juliet Paton',
+		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		body: [
+			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. '
+		],
+		button: {
+			url: '#',
+			text: 'Contact Me',
+			target: '_self'
+		}
+	}
+}
+---
+
+<Layout page="eastlothian" classArray={['eastlothianpage']}>
+	<section>
+		<div class="page-extra">
+			<Spacer />
+			<TextSingleImage data={herotextdata} />
+			<Spacer />
+			<Masonry data={maingallery} />
+			<Spacer />
+		</div>
+		<div class="page-width">
+			<TextContainer data={introtextdata} />
+			<Spacer />
+		</div>
+		<SectionTrans position="top" color="peach-100" />
+		<section class="background-peach-100">
+			<div class="page-extra">
+				<Spacer />
+				<TextDoubleImage data={textdoubleimage} />
+				<Spacer />
+			</div>
+			<div class="page-width">
+				<OffsetImages data={offsetimagedata} />
+				<Spacer />
+				<TextContainer data={supplytextdata} />
+				<Toggles data={supplyinfodata} />
+				<Spacer />
+			</div>
+		</section>
+		<Conclusion data={eastconclusion} />
+		<Footer />
+	</section>
+</Layout>

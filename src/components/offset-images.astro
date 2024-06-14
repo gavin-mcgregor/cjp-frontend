@@ -1,0 +1,30 @@
+---
+import TempImage from '../components/temp-image.astro'
+import Spacer from '../components/spacer.astro'
+const { data } = Astro.props
+---
+
+<div class="offset-image-container">
+	{
+		data &&
+			data.map((image, index) => (
+				<div class="col">
+					{index > 0 && <Spacer />}
+					<TempImage aspect={image.aspect} />
+				</div>
+			))
+	}
+</div>
+
+<style>
+	.offset-image-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	@media (max-width: 640px) {
+		.offset-image-container {
+			gap: 1rem;
+		}
+	}
+</style>

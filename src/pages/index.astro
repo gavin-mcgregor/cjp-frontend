@@ -58,7 +58,10 @@ const hometestimonial = {
 }
 
 const homeconclusion = {
-	background: 'blue-600',
+	background: {
+		trans: 'clear',
+		main: 'blue-600'
+	},
 	textcontainer: {
 		subtitle: 'Contact Claire Juliet Paton',
 		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -117,7 +120,7 @@ const homeconclusion = {
 			<Testimonial data={hometestimonial} />
 			<Spacer />
 		</div>
-		<Conclusion data={homeconclusion} />
 	</section>
+	<Conclusion data={homeconclusion} />
 	<Footer />
 </Layout>

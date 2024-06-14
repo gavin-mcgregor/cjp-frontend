@@ -12,6 +12,7 @@
   --blue-200: #e0e2e3;
   --white: #ffffff;
   --black: #222222;
+  --clear: rgba(0, 0, 0, 0);
   --cream-400: #f9f7f2;
   --cream-200: #fdfcfa;
   --peach-800: #8f5f5a;
@@ -180,6 +181,10 @@ button:hover {
   background-color: var(--peach-800);
 }
 
+.background-peach-100 {
+  background-color: var(--peach-100);
+}
+
 .background-blue-600 {
   background-color: var(--blue-600);
 }
@@ -212,6 +217,10 @@ button:hover {
   padding: 0 min(100px, 5%);
   border-left: solid 2px var(--black);
   border-right: solid 2px var(--black);
+}
+
+.background-peach-800 .page-width-lines {
+  border-color: var(--peach-600);
 }
 
 .background-blue-600 .page-width-lines {
