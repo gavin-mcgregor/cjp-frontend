@@ -1,0 +1,67 @@
+---
+const { data } = Astro.props
+---
+
+<div class="package-card">
+	<div class="text-container">
+		{
+			data.title && data.price && (
+				<div class="package-title">
+					<h3 class="text-title">{data.title}</h3>
+					<p class="package-price">{data.price}</p>
+				</div>
+			)
+		}
+		{data.desc && <p class="package-desc">{data.desc}</p>}
+		{
+			data.list && (
+				<ul>
+					{data.list.map((item) => (
+						<li>{item}</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</div>
+
+<style>
+	.package-card {
+		padding: 4rem;
+		border: 2px solid var(--blue-800);
+
+		.text-container {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			align-items: flex-start;
+		}
+
+		.package-title {
+			display: flex;
+			column-gap: 2rem;
+			row-gap: 0.5rem;
+			flex-wrap: wrap;
+		}
+
+		.package-price {
+			color: var(--blue-400);
+		}
+
+		ul {
+			padding-left: 2.5rem;
+		}
+
+		li {
+			list-style: disc;
+			padding-left: 1rem;
+			padding-bottom: 0.5rem;
+		}
+	}
+
+	@media (max-width: 980px) {
+		.package-card {
+			padding: 2rem;
+		}
+	}
+</style>

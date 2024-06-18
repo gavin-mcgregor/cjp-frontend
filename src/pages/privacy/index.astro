@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/layout.astro'
+import Spacer from '../../components/spacer.astro'
+import TextContainer from '../../components/text-container.astro'
+import Footer from '../../components/footer.astro'
+
+const introtextdata = {
+	subtitle: 'Privacy Policy',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis risus mauris, sed elementum quam interdum non. Curabitur hendrerit elit eget facilisis dignissim. Ut sagittis bibendum felis, at tempus urna. Aenean aliquam dui eu sem maximus vestibulum. Curabitur rhoncus non turpis quis sodales. Proin eget nisi nec leo suscipit sollicitudin. Nullam sodales urna tristique, consectetur diam at, tempor dui. Suspendisse congue felis eget est congue aliquam. Sed quam erat, commodo a consectetur vel, egestas nec nibh. Nulla facilisi.',
+		'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec interdum eget leo vel feugiat. Suspendisse vitae diam sed est pharetra congue. Aenean congue eros sit amet mollis ultricies. Fusce ipsum neque, efficitur et metus sit amet, hendrerit congue sapien. Morbi efficitur tortor eu felis pretium, vitae aliquam risus faucibus. Fusce tortor purus, sagittis ut lorem a, laoreet vulputate odio. Praesent pharetra purus at arcu iaculis, id fermentum dolor elementum. Duis pellentesque pretium risus, quis fermentum nunc volutpat eu. Donec faucibus odio sit amet nisi vestibulum, non ullamcorper massa porttitor.',
+		'Maecenas laoreet metus ac nulla mattis, vitae fermentum ex tempus. Nunc tristique a velit non blandit. Sed non scelerisque tellus. Nunc sit amet libero in nisi mattis aliquet. Ut tortor mi, commodo eleifend fringilla a, placerat eget odio. Nullam sit amet auctor ipsum. Aenean cursus tempor tincidunt. Mauris a venenatis magna, porta rhoncus dolor. Nullam eget metus dolor. Aliquam et posuere ex, quis tempor est. Suspendisse vestibulum libero velit, sit amet dignissim massa rhoncus ut. Suspendisse eleifend, neque in tincidunt accumsan, eros felis lobortis augue, commodo laoreet sem nunc in neque. Proin finibus suscipit hendrerit. Praesent a laoreet sem. Vestibulum eleifend bibendum mattis. Maecenas at orci eu orci euismod cursus in et tellus. Sed eu sagittis enim.',
+		'In justo lacus, faucibus sed enim id, pulvinar lobortis dolor. Donec eu ex quam. Etiam nec dolor augue. Aliquam rhoncus, sapien a pharetra congue, odio nulla rutrum urna, ut vehicula lacus tellus vitae elit. Sed erat massa, condimentum quis turpis sit amet, tempus ultrices dolor. Nam massa eros, euismod et eros ac, euismod pretium ex. Nam nec felis ac elit interdum pellentesque vel eget libero. Sed ac condimentum neque. Etiam mollis quis quam vitae consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ligula neque, fermentum ac eros tristique, molestie feugiat quam. Vestibulum vitae diam convallis, dictum metus et, faucibus diam. Nulla quis arcu vitae nibh sodales congue. Duis sodales, felis nec placerat facilisis, odio mauris vulputate dolor, nec aliquam elit nibh quis lectus.'
+	]
+}
+---
+
+<Layout page="privacy" classArray={['privacypage']}>
+	<section>
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={introtextdata} classArray={['full-width']} />
+			<Spacer />
+			<Spacer />
+		</div>
+	</section>
+	<Footer />
+</Layout>

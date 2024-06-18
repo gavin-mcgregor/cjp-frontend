@@ -1,0 +1,45 @@
+---
+import PackageCard from '../components/package-card.astro'
+const { data } = Astro.props
+
+const spanTwoPackages = data.filter((item) => item.span === 2)
+const spanOnePackages = data.filter((item) => item.span !== 2)
+---
+
+<div class="package-container">
+	{spanOnePackages && spanOnePackages.map((packageSingle) => <PackageCard data={packageSingle} />)}
+	{
+		spanTwoPackages && (
+			<div class="col">
+				{spanTwoPackages.map((packageSingle) => (
+					<PackageCard data={packageSingle} />
+				))}
+			</div>
+		)
+	}
+</div>
+
+<style>
+	.package-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+
+		.col {
+			grid-column: span 2;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.package-container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		:global(.package-card) {
+			grid-column: span 2;
+		}
+	}
+</style>

@@ -1,9 +1,9 @@
 ---
 import Button from '../components/button.astro'
-const { data } = Astro.props
+const { data, classArray } = Astro.props
 ---
 
-<div class="text-container">
+<div class={`text-container${classArray ? ` ${classArray.join(' ')}` : ''}`}>
 	{data.subtitle && <p class="text-subtitle">{data.subtitle}</p>}
 	{data.title && <h2 class="text-title">{data.title}</h2>}
 	{data.display && <h2 class="text-display">{data.display}</h2>}
@@ -23,6 +23,10 @@ const { data } = Astro.props
 		.text-display {
 			text-wrap: balance;
 		}
+	}
+
+	.text-container.full-width {
+		max-width: 100%;
 	}
 
 	:global(.background-peach-800) .text-container {

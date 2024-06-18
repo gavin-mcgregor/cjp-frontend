@@ -2,24 +2,14 @@
 import Layout from '../../layouts/layout.astro'
 import Spacer from '../../components/spacer.astro'
 import TextContainer from '../../components/text-container.astro'
-import TextSingleImage from '../../components/text-single-image.astro'
 import TextDoubleImage from '../../components/text-double-image.astro'
-import OffsetImages from '../../components/offset-images.astro'
 import Masonry from '../../components/masonry.astro'
+import TempImage from '../../components/temp-image.astro'
 import Toggles from '../../components/toggles.astro'
+import Packages from '../../components/packages-container.astro'
 import SectionTrans from '../../components/section-trans.astro'
 import Conclusion from '../../components/conclusion.astro'
 import Footer from '../../components/footer.astro'
-
-const herotextdata = {
-	textcontainer: {
-		display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		body: [
-			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. '
-		]
-	},
-	imagecontainer: [{ aspect: 'landscape' }]
-}
 
 const maingallery = [
 	[{ aspect: 'landscape' }, { aspect: 'portrait' }, { aspect: 'landscape' }],
@@ -29,17 +19,12 @@ const maingallery = [
 ]
 
 const introtextdata = {
-	subtitle: 'Introduce East Lothian',
-	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	body: [
-		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.',
-		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
-	]
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 }
 
 const textdoubleimage = {
 	textcontainer: {
-		title: 'My Life in East Lothian',
+		title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 		body: [
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
 		]
@@ -47,10 +32,8 @@ const textdoubleimage = {
 	imagecontainer: [{ aspect: 'portrait' }, { aspect: 'portrait' }]
 }
 
-const offsetimagedata = [{ aspect: 'portrait' }, { aspect: 'portrait' }]
-
 const supplytextdata = {
-	subtitle: 'Local East Lothian Suppliers',
+	subtitle: 'Frequently Asked Questions',
 	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	body: [
 		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
@@ -59,31 +42,96 @@ const supplytextdata = {
 
 const supplyinfodata = [
 	{
-		title: 'Venues and Hotels',
+		title: 'Lorem ipsum dolor sit amet?',
 		content:
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor.'
 	},
 	{
-		title: 'Catering and Drinks',
+		title: 'Morbi in urna lacinia, gravida leo tincidunt?',
 		content:
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada.'
 	},
 	{
-		title: 'Flowers and Decor',
+		title: 'Ut quis imperdiet purus?',
 		content:
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. In fermentum auctor malesuada. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a.'
 	},
 	{
-		title: 'Music, Bands and Djs',
+		title: 'Nam rutrum magna tortor, vel fermentum ipsum placerat velit egestas fermentum finibus?',
 		content:
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a.'
 	}
 ]
 
-const eastconclusion = {
+const packagesdata = [
+	{
+		title: 'Full Day Weddings',
+		price: '£1900 / $2400',
+		list: [
+			'Up to 10 hours Coverage',
+			'Incl. Preparations — Dancing',
+			'Unlimited travel on mainland Scotland',
+			'Minimum 500 high resolution images',
+			'Private online gallery',
+			'Unlimited downloads',
+			'Personal printing rights'
+		]
+	},
+	{
+		title: 'Half Day Weddings',
+		price: '£1500 / $1900',
+		list: [
+			'Up to 5 hours Coverage',
+			'Incl. Preparations — Speeches',
+			'Unlimited travel on mainland Scotland',
+			'Minimum 300 high resolution images',
+			'Private online gallery',
+			'Unlimited downloads',
+			'Personal printing rights'
+		]
+	},
+	{
+		title: 'Micro Weddings',
+		price: '£1900 / $2400',
+		list: [
+			'Up to 3 hours Coverage',
+			'Incl. Ceremony — Portraits',
+			'Unlimited travel on mainland Scotland',
+			'Minimum 250 high resolution images',
+			'Private online gallery',
+			'Unlimited downloads',
+			'Personal printing rights'
+		]
+	},
+	{
+		title: 'Wedding Albums',
+		price: '£000 / $000',
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin gravida dolor sed nunc imperdiet, sed egestas massa aliquam. Morbi suscipit neque ipsum. Etiam velit neque, vehicula a nisi vel, fringilla consequat orci.'
+	},
+	{
+		title: 'Short Film',
+		price: '£1000 / $1300',
+		desc: 'We offer cinematic films which last 3 - 5 minutes, capturing the best of the atmosphere and narrative of your day. They are personal and emotive tributes, cleverly crafted around your unique story,  personality and style.',
+		span: 2
+	},
+	{
+		title: 'Engagment Shoot',
+		price: '£250 / $350',
+		desc: 'Shot at a location of your choosing within 30 miles of Edinburgh, sessions last 1 hour and provide a minimum of 100 high resolution images.',
+		span: 2
+	},
+	{
+		title: 'Additional Shooter',
+		price: '£300 / $400',
+		desc: 'Book a second photographer for additional coverage at your event.',
+		span: 2
+	}
+]
+
+const packagesconclusion = {
 	background: {
 		trans: 'peach-200',
-		main: 'peach-800'
+		main: 'blue-600'
 	},
 
 	textcontainer: {
@@ -101,35 +149,37 @@ const eastconclusion = {
 }
 ---
 
-<Layout page="eastlothian" classArray={['eastlothianpage']}>
+<Layout page="packages" classArray={['packagespage']}>
 	<section>
-		<div class="page-extra">
-			<Spacer />
-			<TextSingleImage data={herotextdata} />
-			<Spacer />
-			<Masonry data={maingallery} />
-			<Spacer />
-		</div>
 		<div class="page-width">
+			<Spacer />
 			<TextContainer data={introtextdata} />
 			<Spacer />
 		</div>
-	</section>
-	<SectionTrans position="top" color="peach-100" />
-	<section class="background-peach-100">
 		<div class="page-extra">
+			<TempImage aspect="landscape" />
 			<Spacer />
 			<TextDoubleImage data={textdoubleimage} />
 			<Spacer />
 		</div>
 		<div class="page-width">
-			<OffsetImages data={offsetimagedata} />
+			<Packages data={packagesdata} />
+			<Spacer />
+		</div>
+		<div class="page-extra">
+			<Masonry data={maingallery} />
+			<Spacer />
+		</div>
+	</section>
+	<SectionTrans position="top" color="peach-100" />
+	<section class="background-peach-100">
+		<div class="page-width">
 			<Spacer />
 			<TextContainer data={supplytextdata} />
 			<Toggles data={supplyinfodata} />
 			<Spacer />
 		</div>
 	</section>
-	<Conclusion data={eastconclusion} />
+	<Conclusion data={packagesconclusion} />
 	<Footer />
 </Layout>

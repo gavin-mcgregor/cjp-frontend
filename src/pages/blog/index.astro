@@ -2,14 +2,12 @@
 import Layout from '../../layouts/layout.astro'
 import Spacer from '../../components/spacer.astro'
 import TextContainer from '../../components/text-container.astro'
-import Masonry from '../../components/masonry.astro'
-import Line from '../../components/line.astro'
-import Testimonial from '../../components/testimonial.astro'
+import Blog from '../../components/blog-container.astro'
 import Conclusion from '../../components/conclusion.astro'
 import Footer from '../../components/footer.astro'
 
 const herotextdata = {
-	subtitle: 'Wedding Gallery Portfolio',
+	subtitle: 'The Wedding Blog',
 	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	body: [
 		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante.'
@@ -51,15 +49,10 @@ const maingallery = [
 	]
 ]
 
-const weddingtestimonial = {
-	quote: 'I felt so at ease, like we’ve been friends for years!',
-	author: 'David & Gail, Glasgow'
-}
-
 const weddingconclusion = {
 	background: {
 		trans: 'clear',
-		main: 'peach-800'
+		main: 'blue-600'
 	},
 
 	textcontainer: {
@@ -69,7 +62,7 @@ const weddingconclusion = {
 			'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam rutrum magna tortor, vel fermentum ipsum convallis a. Nullam sollicitudin nibh quis metus viverra tempor. Ut quis imperdiet purus, non interdum ante. '
 		],
 		button: {
-			url: '/contact/',
+			url: '#',
 			text: 'Contact Me',
 			target: '_self'
 		}
@@ -77,7 +70,7 @@ const weddingconclusion = {
 }
 ---
 
-<Layout page="wedding" classArray={['weddingpage']}>
+<Layout page="blog" classArray={['blogpage']}>
 	<section>
 		<div class="page-width">
 			<Spacer />
@@ -85,17 +78,10 @@ const weddingconclusion = {
 			<Spacer />
 		</div>
 		<div class="page-extra">
-			<Spacer />
-			<Masonry data={maingallery} />
-			<Spacer />
-		</div>
-		<Line />
-		<div class="page-width">
-			<Spacer />
-			<Testimonial data={weddingtestimonial} />
+			<Blog />
 			<Spacer />
 		</div>
 	</section>
-	<Conclusion data={weddingconclusion} />
-	<Footer />
 </Layout>
+<Conclusion data={weddingconclusion} />
+<Footer />

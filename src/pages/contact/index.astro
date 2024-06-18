@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/layout.astro'
+import Spacer from '../../components/spacer.astro'
+import TextContainer from '../../components/text-container.astro'
+import Form from '../../components/form.astro'
+import SectionTrans from '../../components/section-trans.astro'
+import Footer from '../../components/footer.astro'
+
+const introtextdata = {
+	subtitle: 'General Introduction',
+	display: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	body: [
+		'Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Morbi in urna lacinia, gravida leo tincidunt, placerat velit. Suspendisse egestas fermentum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.'
+	]
+}
+---
+
+<Layout page="contact" classArray={['contactpage']}>
+	<Spacer />
+	<SectionTrans position="top" color="peach-800" />
+	<section class="background-peach-800">
+		<div class="page-width">
+			<Spacer />
+			<TextContainer data={introtextdata} />
+			<Spacer />
+			<Form />
+			<Spacer />
+		</div>
+	</section>
+	<Footer />
+</Layout>

@@ -1,0 +1,92 @@
+---
+import Button from '../components/button.astro'
+
+const buttondata = {
+	url: '#',
+	text: 'Contact Me',
+	target: '_self'
+}
+---
+
+<div class="form-container">
+	<form autocomplete="off">
+		<div class="fields">
+			<div class="row">
+				<label for="fnime">Full Name:</label>
+				<input id="fnime" type="text" name="fnime" />
+			</div>
+			<div class="row">
+				<label for="email">Email Address:</label>
+				<input id="email" type="text" name="email" />
+			</div>
+			<div class="row">
+				<label for="mphone">Phone Number:</label>
+				<input id="mphone" type="text" name="mphone" />
+			</div>
+			<div class="row">
+				<label for="date">Event Date:</label>
+				<input id="date" type="text" name="date" />
+			</div>
+			<div class="row">
+				<label for="venue">Event Venue:</label>
+				<input id="venue" type="text" name="venue" />
+			</div>
+			<div class="row">
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea>
+			</div>
+			<div class="row">
+				<label for="refer">How did you find me?</label>
+				<input id="refer" type="text" name="refer" />
+			</div>
+		</div>
+		<div class="submit">
+			<Button data={buttondata} />
+		</div>
+	</form>
+</div>
+
+<style>
+	form {
+		overflow: hidden;
+	}
+	form .row {
+		border: 2px solid var(--cream-400);
+		border-bottom-width: 0;
+		color: var(--cream-400);
+		padding: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		label {
+			min-width: 250px;
+		}
+
+		input,
+		textarea {
+			flex-grow: 1;
+			background-color: var(--clear);
+			border: 0px;
+			color: var(--cream-400);
+		}
+
+		textarea {
+			height: 120px;
+		}
+	}
+	form .row:last-of-type {
+		border-bottom-width: 2px;
+	}
+	form .submit {
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+	@media (max-width: 640px) {
+		form .row label {
+			min-width: 150px;
+		}
+	}
+</style>
